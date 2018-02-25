@@ -7,4 +7,4 @@ Send My GPS Location is an application for detection current location and sharin
 The application also include a tool for converting GPS coordinates between WGS84 decimal coordinate and DD MM SS format.
 
 ## Play Store Installs
-[https://play.google.com/store/apps/details?id=net.mypapit.mobile.myposition](My Location)
+[MyLocation](https://play.google.com/store/apps/details?id=net.mypapit.mobile.myposition)
