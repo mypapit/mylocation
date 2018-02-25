@@ -1,4 +1,4 @@
-# mylocation
+# My Location
 An Android application for bookmarking and sharing  location 
 
 ## Description
