@@ -5,3 +5,6 @@ An Android application for bookmarking and sharing  location
 Send My GPS Location is an application for detection current location and sharing GPS coordinate with close friends and contacts.
 
 The application also include a tool for converting GPS coordinates between WGS84 decimal coordinate and DD MM SS format.
+
+## Play Store Installs
+[https://play.google.com/store/apps/details?id=net.mypapit.mobile.myposition](My Location)
