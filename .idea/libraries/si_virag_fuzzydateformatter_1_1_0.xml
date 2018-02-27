@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="si.virag:fuzzydateformatter-1.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fuzzydateformatter-1.1.0.aar/d9e4495d5a238417080cb536b04581cd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fuzzydateformatter-1.1.0.aar/d9e4495d5a238417080cb536b04581cd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/si.virag/fuzzydateformatter/1.1.0/3fd5d22553254dbe8008ab7183983c4dc205380b/fuzzydateformatter-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
