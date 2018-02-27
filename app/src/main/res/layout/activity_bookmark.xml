@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/bgcircle_repeating"
+    tools:context="net.mypapit.mobile.myposition.BookmarkActivity"
+
+
+
+    >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/bookmarktoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewBookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        ads:adSize="LARGE_BANNER"
+        ads:adUnitId="@string/banner_ad_bookmark_id"
+        android:layout_below="@id/app_bar_layout"
+        android:visibility="gone"
+
+        />
+
+    <ListView
+        android:id="@+id/bookmarklistview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adViewBookmark"
+
+        />
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:visibility="gone"
+        android:text="@string/label_nodata"
+        />
+
+</RelativeLayout>
+
+

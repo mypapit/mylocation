@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sharelocationlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="16dip"
+    android:layout_marginTop="16dip"
+    android:background="@color/colorBackground"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
+   >
+
+    <ImageView
+        android:id="@+id/icon"
+
+        android:layout_width="48dip"
+        android:layout_height="48dip"
+        android:layout_marginBottom="16dip"
+        android:layout_marginTop="16dip"
+        android:contentDescription="@string/app_name"
+        android:src="@android:drawable/ic_delete" />
+
+
+    <TextView
+        android:id="@+id/slAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/slLocation"
+        android:layout_marginLeft="16dip"
+        android:layout_toRightOf="@id/icon"
+        android:singleLine="true"
+        android:text="Address"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/slLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dip"
+        android:layout_marginTop="8dip"
+        android:layout_toRightOf="@id/icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Location"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/slDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/slAddress"
+
+
+        android:text="20.0 km" />
+
+
+</RelativeLayout>
