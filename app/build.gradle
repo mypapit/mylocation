@@ -8,8 +8,8 @@ android {
         applicationId "net.mypapit.mobile.myposition"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 300
-        versionName "3.0"
+        versionCode 302
+        versionName "3.0.2"
     }
     buildTypes {
         release {

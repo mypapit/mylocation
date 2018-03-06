@@ -35,9 +35,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -56,6 +58,7 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
 
     SimpleArrayMap<Marker, Venue> mark;
     private GoogleMap mMap;
+    InterstitialAd  mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +72,13 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
 
         MobileAds.initialize(getApplicationContext(), getString(R.string.app_adview_id));
         final AdView mAdView = findViewById(R.id.adViewMap);
-        AdRequest adRequest = new AdRequest.Builder().build();
+
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating","T");
+
+        AdRequest adRequest = new AdRequest.Builder().setIsDesignedForFamilies(false)
+                                .addNetworkExtrasBundle(AdMobAdapter.class,extras).build();
+
         mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int i) {
@@ -85,6 +94,12 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
             }
         });
         mAdView.loadAd(adRequest);
+
+       mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.intersitial));
+
+        mInterstitialAd.loadAd(adRequest);
+
 
         mark = new SimpleArrayMap<>();
 
@@ -104,7 +119,18 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
         //toolbar.setOnMenuItemClickListener(this);
 
     }
+protected void onPause(){
+        super.onPause();
 
+        if (mInterstitialAd.isLoaded()) {
+
+            mInterstitialAd.show();
+
+        }
+
+
+
+}
 
     /**
      * Manipulates the map once available.

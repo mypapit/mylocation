@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private void handleNewLocation(Location location, long time) {
 
         Date date = new Date(time);
-        toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), date));
+       // toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), date));
         handleNewLocation(location);
 
 
@@ -307,7 +307,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         Picasso.with(this).load(Constants.RANDOM_URL).into(image);
 
 
-        toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), new Date(newLocation.getTime())));
+       // toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), new Date(newLocation.getTime())));
+
+        if (mLastLocation == null){
+
+            mLastLocation = new Location("");
+
+        }
 
         if (newLocation != null && newLocation.distanceTo(mLastLocation) > 5000) {
             //new GetPhotoHeader(this, Constants.PANO_URL, newLocation.getLatitude(),newLocation.getLongitude()).execute();
@@ -450,8 +456,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 intent.setAction(Intent.ACTION_SEND);
                 NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
                 nf.setMaximumFractionDigits(5);
-                String slat = nf.format(mLastLocation.getLatitude());
-                String slng = nf.format((mLastLocation.getLongitude()));
+
+                String slat, slng;
+                if (mLastLocation == null){
+
+                    mLastLocation = new Location("");
+                }
+
+                slat = nf.format(mLastLocation.getLatitude());
+                slng = nf.format((mLastLocation.getLongitude()));
 
                 String sAll = slat + " N - " + slng + " E";
                 String sURL = "https://maps.google.com/?q=" + slat + "," + slng;
@@ -506,7 +519,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         if (mCurrentLocation != null) {
 
-            toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), new Date(mCurrentLocation.getTime())));
+            //toolbar.setSubtitle(FuzzyDateTimeFormatter.getTimeAgo(getApplicationContext(), new Date(mCurrentLocation.getTime())));
         }
 
     }
