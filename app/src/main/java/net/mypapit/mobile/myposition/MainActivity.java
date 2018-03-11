@@ -441,6 +441,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         Intent intent = new Intent();
+        Bundle bundle;
 
         switch (item.getItemId()) {
 /*
@@ -482,7 +483,24 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 //Toast.makeText(this, "Bookmark button", Toast.LENGTH_SHORT).show();
                 intent.setClass(this, BookmarkActivity.class);
 
-                Bundle bundle = new Bundle();
+                 bundle = new Bundle();
+
+                if (globalLocation != null) {
+                    bundle.putDouble("lat", globalLocation.getLatitude());
+                    bundle.putDouble("lng", globalLocation.getLongitude());
+                } else {
+                    bundle.putDouble("lat", 0.0);
+                    bundle.putDouble("lng", 0.0);
+
+                }
+                intent.putExtras(bundle);
+
+                startActivity(intent);
+                return false;
+            case R.id.nearbyvideo:
+                intent.setClass(this, NearbyVideoActivity.class);
+
+                 bundle = new Bundle();
 
                 if (globalLocation != null) {
                     bundle.putDouble("lat", globalLocation.getLatitude());

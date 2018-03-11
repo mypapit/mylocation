@@ -49,17 +49,15 @@
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
-
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="net.mypapit.mobile.myposition.db" />
 
-
-
         <activity
             android:name=".ShareLocationMap"
             android:label="@string/title_activity_share_location" />
-        <activity android:name=".BookmarkActivity"></activity>
+        <activity android:name=".BookmarkActivity" />
+        <activity android:name=".NearbyVideoActivity"></activity>
     </application>
 
 </manifest>

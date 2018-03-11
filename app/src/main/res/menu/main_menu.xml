@@ -11,4 +11,10 @@
         android:title="@string/menu_bookmark"
         app:showAsAction="always"
         />
+
+    <item android:id="@+id/nearbyvideo"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="@string/menu_nearybyvideo"
+        app:showAsAction="always"
+        />
 </menu>

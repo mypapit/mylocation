@@ -13,7 +13,6 @@
     <string name="label_location_notdetected">Location Not Detected</string>
 
 
-
     <string name="service_not_available">Service not available </string>
     <string name="invalid_lat_long_used">Invalid location</string>
     <string name="no_address_found">No address found</string>
@@ -33,19 +32,19 @@
 
     <string name="menu_share_location_map">Share Location Map</string>
     <string name="menu_about">About</string>
+    <string name="menu_nearybyvideo">Nearby Video</string>
     <string name="menu_bookmark">View Bookmark</string>
 
-    <string name="banner_ad_unit_id"  translatable="false">ca-app-pub-3163716613766876/4668103403</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3163716613766876/4668103403</string>
     <string name="banner_ad_map_id" translatable="false">ca-app-pub-3163716613766876/4388013753</string>
     <string name="banner_ad_bookmark_id" translatable="false">ca-app-pub-3163716613766876/4872951681</string>
-    <string name="banner_testad"  translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="app_adview_id"  translatable="false">ca-app-pub-3163716613766876~8795037472</string>
+    <string name="banner_testad" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="app_adview_id" translatable="false">ca-app-pub-3163716613766876~8795037472</string>
 
-<string name="intersitial" translatable="false">ca-app-pub-3163716613766876/6428922964</string>
+    <string name="intersitial" translatable="false">ca-app-pub-3163716613766876/6428922964</string>
+    <!-- <string name="google_maps_key"  translatable="false">AIzaSyDFE4f0I7LfZfYZSEpNa1X4UDJ1LGRD9S8</string> -->
 
-
-
-
+    <string name="google_maps_key" translatable="false">AIzaSyBBeL2Sk4WKLb-q85kofRWLWwd4ligJxag</string>
 
 
 </resources>
