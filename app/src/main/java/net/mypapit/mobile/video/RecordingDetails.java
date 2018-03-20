@@ -16,6 +16,12 @@ public class RecordingDetails {
     @Expose
     private Location location;
 
+    public RecordingDetails() {
+        this.locationDescription = new String("Unknown");
+
+
+    }
+
     public String getLocationDescription() {
         return locationDescription;
     }

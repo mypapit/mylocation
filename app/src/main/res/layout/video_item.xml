@@ -7,30 +7,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-
-    card_view:cardElevation="4dp"
+    card_view:cardElevation="2dp"
     card_view:cardPreventCornerOverlap="true"
-
     card_view:cardUseCompatPadding="true"
-
-
     >
 
     <RelativeLayout
 
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dip">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/video_location"
+            android:layout_centerHorizontal="true"
+            android:maxLines="2"
+            android:padding="4dip"
+            android:text="@string/menu_nearybyvideo"
+
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/video_location"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:maxLines="1"
             android:padding="4dip"
             android:text="@string/menu_nearybyvideo"
+            android:textStyle="bold"
 
             />
 

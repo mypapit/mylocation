@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.squareup.picasso.Picasso;
 
 import net.mypapit.mobile.myposition.R;
+import net.mypapit.mobile.video.RecordingDetails;
 import net.mypapit.mobile.video.VideoInfo;
 
 /**
@@ -19,12 +20,12 @@ import net.mypapit.mobile.video.VideoInfo;
 public class NearbyVideoAdapter extends
         RecyclerView.Adapter<NearbyVideoAdapter.ViewHolder> {
 
-    Context context;
-    VideoInfo[] videoInfo;
-    OnItemClickListener listener;
+    private Context context;
+    private VideoInfo[] videoInfo;
+    private OnItemClickListener listener;
 
 
-    public NearbyVideoAdapter(Context context, VideoInfo[] videoInfo) {
+    public NearbyVideoAdapter(Context context, final VideoInfo[] videoInfo) {
         this.videoInfo = videoInfo;
         this.context = context;
     }
@@ -43,9 +44,21 @@ public class NearbyVideoAdapter extends
         VideoInfo info = videoInfo[position];
         AppCompatImageView image = holder.imgPreview;
         AppCompatTextView title = holder.txtTitle;
+        AppCompatTextView location = holder.txtLocation;
+
 
         title.setText(info.getSnippet().getTitle());
+
+        RecordingDetails details = new RecordingDetails();
+
+        if (info.getRecordingDetails() != null) {
+            details = info.getRecordingDetails();
+        }
+
         String imageURL = info.getSnippet().getThumbnails().getStandard().getUrl();
+
+        location.setText(details.getLocationDescription());
+
 
         Picasso.with(context).load(imageURL).into(image);
 
@@ -76,8 +89,9 @@ public class NearbyVideoAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public AppCompatTextView txtTitle;
-        public AppCompatImageView imgPreview;
+        AppCompatTextView txtTitle;
+        AppCompatTextView txtLocation;
+        AppCompatImageView imgPreview;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -88,7 +102,7 @@ public class NearbyVideoAdapter extends
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(final View v) {
                     if (listener != null) {
 
                         int position = getAdapterPosition();
@@ -98,30 +112,13 @@ public class NearbyVideoAdapter extends
 
                         }
 
-/*
-                        String vid = videoInfo[position].getId();
-
-                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + vid));
-
-                        Intent oldIntent = new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("http://www.youtube.com/watch?v=" + vid));
-
-                        Toast.makeText(context,vid,Toast.LENGTH_SHORT).show();
-
-                        try {
-                            context.startActivity(intent);
-                        } catch (ActivityNotFoundException ex) {
-                            context.startActivity(oldIntent);
-                        }
-
-                        */
-
 
                     }
                 }
             });
 
             txtTitle = itemView.findViewById(R.id.video_title);
+            txtLocation = itemView.findViewById(R.id.video_location);
             imgPreview = itemView.findViewById(R.id.video_preview);
         }
 

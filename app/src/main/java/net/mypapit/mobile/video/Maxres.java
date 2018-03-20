@@ -4,7 +4,7 @@ package net.mypapit.mobile.video;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Maxres {
+public class Maxres implements VideoQuality {
 
     @SerializedName("height")
     @Expose

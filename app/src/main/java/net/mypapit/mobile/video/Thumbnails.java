@@ -30,7 +30,12 @@ public class Thumbnails {
         this._default = _default;
     }
 
-    public Medium getMedium() {
+    public VideoQuality getMedium() {
+        if (medium == null) {
+            return getStandard();
+        }
+
+
         return medium;
     }
 
@@ -38,7 +43,11 @@ public class Thumbnails {
         this.medium = medium;
     }
 
-    public High getHigh() {
+    public VideoQuality getHigh() {
+        if (high == null) {
+            return getStandard();
+        }
+
         return high;
     }
 
@@ -46,7 +55,11 @@ public class Thumbnails {
         this.high = high;
     }
 
-    public Standard getStandard() {
+    public VideoQuality getStandard() {
+        if (standard == null) {
+            return getDefault();
+
+        }
         return standard;
     }
 
@@ -54,12 +67,23 @@ public class Thumbnails {
         this.standard = standard;
     }
 
-    public Maxres getMaxres() {
+    public VideoQuality getMaxres() {
+        if (maxres == null) {
+
+            return getStandard();
+        }
+
         return maxres;
     }
 
     public void setMaxres(Maxres maxres) {
         this.maxres = maxres;
+    }
+
+    public Maxres getAbsMaxres() {
+        return maxres;
+
+
     }
 
 }

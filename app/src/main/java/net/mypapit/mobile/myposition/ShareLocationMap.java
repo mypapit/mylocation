@@ -29,6 +29,8 @@ package net.mypapit.mobile.myposition;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.util.SimpleArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -57,8 +59,8 @@ import java.util.List;
 public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     SimpleArrayMap<Marker, Venue> mark;
+    InterstitialAd mInterstitialAd;
     private GoogleMap mMap;
-    InterstitialAd  mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +76,10 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
         final AdView mAdView = findViewById(R.id.adViewMap);
 
         Bundle extras = new Bundle();
-        extras.putString("max_ad_content_rating","T");
+        extras.putString("max_ad_content_rating", "T");
 
         AdRequest adRequest = new AdRequest.Builder().setIsDesignedForFamilies(false)
-                                .addNetworkExtrasBundle(AdMobAdapter.class,extras).build();
+                .addNetworkExtrasBundle(AdMobAdapter.class, extras).build();
 
         mAdView.setAdListener(new AdListener() {
             @Override
@@ -95,7 +97,7 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
         });
         mAdView.loadAd(adRequest);
 
-       mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId(getString(R.string.intersitial));
 
         mInterstitialAd.loadAd(adRequest);
@@ -119,18 +121,14 @@ public class ShareLocationMap extends AppCompatActivity implements OnMapReadyCal
         //toolbar.setOnMenuItemClickListener(this);
 
     }
-protected void onPause(){
+
+    protected void onPause() {
         super.onPause();
 
         if (mInterstitialAd.isLoaded()) {
-
             mInterstitialAd.show();
-
         }
-
-
-
-}
+    }
 
     /**
      * Manipulates the map once available.
@@ -148,6 +146,7 @@ protected void onPause(){
             mMap.setMyLocationEnabled(true);
         } catch (SecurityException sex) {
 
+            Snackbar.make(new CoordinatorLayout(this), R.string.grant_access_snackbar, Snackbar.LENGTH_SHORT);
 
         }
 

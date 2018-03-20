@@ -8,8 +8,8 @@ android {
         applicationId "net.mypapit.mobile.myposition"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 302
-        versionName "3.0.2"
+        versionCode 305
+        versionName "3.0.5"
     }
     buildTypes {
         release {
@@ -24,10 +24,12 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.google.android.gms:play-services-ads:9.4.0'
-    implementation 'com.google.android.gms:play-services-maps:9.4.0'
-    implementation 'com.google.android.gms:play-services-location:9.4.0'
+    implementation 'com.google.android.gms:play-services-ads:10.2.0'
+    implementation 'com.google.android.gms:play-services-maps:10.2.0'
+    implementation 'com.google.android.gms:play-services-location:10.2.0'
+
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'si.virag:fuzzydateformatter:1.1.0'
     compile 'com.android.support:design:26.1.0'

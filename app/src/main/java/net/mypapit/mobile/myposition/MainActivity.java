@@ -82,8 +82,6 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import si.virag.fuzzydateformatter.FuzzyDateTimeFormatter;
-
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener, Toolbar.OnMenuItemClickListener, PhotoRetrievedListener {
@@ -292,7 +290,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     private void handleNewLocation(Location newLocation) {
-        NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
+
+
+        NumberFormat nf = NumberFormat.getInstance();
+
+
         nf.setMaximumFractionDigits(5);
         StringBuilder sb = new StringBuilder(nf.format(newLocation.getLatitude()));
         sb.append(" , ");
@@ -455,8 +457,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
             case R.id.shareCoord:
                 intent.setAction(Intent.ACTION_SEND);
-                NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
+                NumberFormat nf = NumberFormat.getNumberInstance();
+
                 nf.setMaximumFractionDigits(5);
+
+                NumberFormat of = NumberFormat.getNumberInstance(Locale.US);
 
                 String slat, slng;
                 if (mLastLocation == null){
@@ -468,6 +473,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 slng = nf.format((mLastLocation.getLongitude()));
 
                 String sAll = slat + " N - " + slng + " E";
+
+                slat = of.format(mLastLocation.getLatitude());
+                slng = of.format((mLastLocation.getLongitude()));
+
                 String sURL = "https://maps.google.com/?q=" + slat + "," + slng;
 
                 intent.putExtra(Intent.EXTRA_TEXT, "My Position: " + sAll + "\n" + sURL);

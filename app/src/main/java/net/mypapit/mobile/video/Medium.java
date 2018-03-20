@@ -4,7 +4,7 @@ package net.mypapit.mobile.video;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Medium {
+public class Medium implements VideoQuality {
 
     @SerializedName("height")
     @Expose
